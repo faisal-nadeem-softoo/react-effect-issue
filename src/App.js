@@ -1,17 +1,13 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from "react";
 
-export function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [count, setCount] = useState(0);
 
-  const onClick = () => {
-    setCount(count + 1)
-    setCount(count + 1)
-  }
+  useEffect(() => {
+    document.addEventListener("click", () => {
+      setCount((count) => count + 1);
+    });
+  }, []);
 
-  return (
-    <>
-      <span> Count: {count} </span>
-      <button onClick={onClick}>Increment</button>
-    </>
-  )
+  return <div className="App">{count}</div>;
 }
